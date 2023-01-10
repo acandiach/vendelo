@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+iphone:
+  title: Iphone
+  description: esta en exelencte estado
+  price: 500
+  category: videogames
+
+laptop:
+  title: Laptop Rayzen
+  description: muy buena para jugar y trabajar
+  price: 700
+  category: videogames
+
+air:
+  title: MacBook Air
+  description: Le falla la bateria
+  price: 200
+  category: computers
