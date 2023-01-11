@@ -38,6 +38,7 @@ en:
       delete: 'Delete Product'
     index:
       title: 'Products:'
+      all: 'All'
     create:
       created: 'The product was successfully created'
     update:
