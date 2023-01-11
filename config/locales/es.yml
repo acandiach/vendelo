@@ -41,6 +41,7 @@ es:
       all: 'Todos'
       min_price: 'Precio mínimo'
       max_price: 'Precio máximo'
+      query_text: '¿Qué quieres buscar?'
     create:
       created: 'El producto fue creado con éxito'
     update:

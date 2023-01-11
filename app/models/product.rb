@@ -1,4 +1,10 @@
 class Product < ApplicationRecord
+  include PgSearch::Model
+  pg_search_scope :search_full_text, against: {
+    title: 'A',
+    description: 'B'
+  }
+
   validates :title, presence: true
   validates :description, presence: true
   validates :price, presence: true
