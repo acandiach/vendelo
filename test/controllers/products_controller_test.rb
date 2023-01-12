@@ -5,56 +5,56 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     get products_path
 
     assert_response :success
-    assert_select '.product', 3
-    assert_select '.category', 2
+    assert_select '.product', 12
+    assert_select '.category', 9
   end
 
   test 'render a list of products filtered by category' do
-    get products_path(category_id: categories(:videogames).id)
+    get products_path(category_id: categories(:computers).id)
 
     assert_response :success
-    assert_select '.product', 2
+    assert_select '.product', 5
   end
- 
+
   test 'render a list of products filtered by min_price and max_price' do
-    get products_path(min_price: 400, max_price: 600)
+    get products_path(min_price: 160, max_price: 200)
 
     assert_response :success
-    assert_select '.product', 1
-    assert_select 'h2', 'Iphone'
+    assert_select '.product', 3
+    assert_select 'h2', 'Nintendo Switch'
   end
 
   test 'search a product by query_text' do
-    get products_path(query_text: 'Iphone')
+    get products_path(query_text: 'Switch')
 
     assert_response :success
     assert_select '.product', 1
-    assert_select 'h2', 'Iphone'
+    assert_select 'h2', 'Nintendo Switch'
   end
 
   test 'sort products by expensive prices first' do
     get products_path(order_by: 'expensive')
 
     assert_response :success
-    assert_select '.product', 3
-    assert_select '.products .product:first-child h2', 'Laptop Ryzen'
+    assert_select '.product', 12
+    assert_select '.products .product:first-child h2', 'Seat Panda clásico'
   end
 
   test 'sort products by cheapest prices first' do
     get products_path(order_by: 'cheapest')
 
     assert_response :success
-    assert_select '.product', 3
-    assert_select '.products .product:first-child h2', 'MacBook Air'
+    assert_select '.product', 12
+    assert_select '.products .product:first-child h2', 'El hobbit'
   end
 
   test 'render a detailed product page' do
-    get product_path(products(:iphone))
+    get product_path(products(:ps4))
 
     assert_response :success
-    assert_select '.title', 'Iphone'
-    assert_select '.description', 'esta en excelente estado'
-    assert_select '.price', '$500'
+    assert_select '.title', 'PS4 Fat'
+    assert_select '.description', 'PS4 en buen estado'
+    assert_select '.price', '$150'
   end
 
   test 'render a new product form' do
@@ -64,12 +64,12 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     assert_select 'form'
   end
 
-  test 'allow to create a new product' do
+  test 'allows to create a new product' do
     post products_path, params: {
       product: {
-        title: "Iphone",
-        description: "esta en exelencte estado",
-        price: 500,
+        title: 'Nintendo 64',
+        description: 'Le faltan los cables',
+        price: 45,
         category_id: categories(:videogames).id
       }
     }
@@ -81,9 +81,9 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   test 'does not allow to create a new product with empty fields' do
     post products_path, params: {
       product: {
-        title: "",
-        description: "esta en exelencte estado",
-        price: 500
+        title: '',
+        description: 'Le faltan los cables',
+        price: 45
       }
     }
 
@@ -91,25 +91,25 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'render an edit product form' do
-    get new_product_path(products(:iphone))
+    get edit_product_path(products(:ps4))
 
     assert_response :success
     assert_select 'form'
   end
 
   test 'allows to update a product' do
-    patch product_path(products(:iphone)), params: {
+    patch product_path(products(:ps4)), params: {
       product: {
-        price: 400
+        price: 165
       }
     }
 
     assert_redirected_to products_path
-    assert_equal flash[:notice], 'El producto se actualizó con éxito'
+    assert_equal flash[:notice], 'El producto se actualizó con éxito' 
   end
 
-  test 'does allows to update a product with an invalid field' do
-    patch product_path(products(:iphone)), params: {
+  test 'does not allow to update a product with an invalid field' do
+    patch product_path(products(:ps4)), params: {
       product: {
         price: nil
       }
@@ -120,9 +120,10 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test 'can delete products' do
     assert_difference('Product.count', -1) do
-      delete product_path(products(:iphone))
+      delete product_path(products(:ps4))
     end
+
     assert_redirected_to products_path
-    assert_equal flash[:notice],'El producto se eliminó con éxito'
+    assert_equal flash[:notice], 'El producto se eliminó con éxito'
   end
 end
