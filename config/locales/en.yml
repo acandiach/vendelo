@@ -5,6 +5,7 @@ en:
     models:
       product: Product
       category: Category
+      user: User
     attributes:
       product:
         title: 'Title'
@@ -14,16 +15,10 @@ en:
         category_id: 'Category'
       category:
         name: 'Name'
-    errors:
-      models:
-        product:
-          attributes:
-            title:
-              blank: 'Can not be blank'
-            description:
-              blank: 'Can not be blank'
-            price:
-              blank: 'Can not be blank'
+      user:
+        email: 'Email'
+        username: 'Username'
+        password: 'Password'
         category:
           attributes:
             name:
@@ -37,6 +32,9 @@ en:
     header:
       add: 'Add Product'
       categories: 'Add Category'
+      login: 'Login'
+      register: 'Register'
+      logout: 'Logout'
 
         #users
   authentication:
@@ -47,6 +45,8 @@ en:
       create:
         created: 'Welcome!'
         failed: 'Invalid login!'
+      destroy:
+        destroyed: 'Session ended. Bye!'
   products:
     edit:
       title: 'Edit Product'

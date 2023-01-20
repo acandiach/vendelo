@@ -3,8 +3,9 @@ es:
   meta_title: 'Compra y vende productos de segunda mano'
   activerecord:
     models:
-      product: Product
-      category: Category
+      product: Producto
+      category: Categoría
+      user: Usuario
     attributes:
       product:
         title: 'Titulo'
@@ -14,16 +15,10 @@ es:
         category_id: 'Categoria'
       category:
         name: 'Nombre'
-    errors:
-      models:
-        product:
-          attributes:
-            title:
-              blank: 'No puede estar vacio'
-            description:
-              blank: 'No puede estar vacio'
-            price:
-              blank: 'No puede estar vacio'
+      user:
+        email: 'Correo electrónico'
+        username: 'Usuario'
+        password: 'Contraseña'
         category:
           attributes:
             name:
@@ -37,6 +32,9 @@ es:
     header:
       add: 'Crear Producto'
       categories: 'Crear Categoria'
+      login: 'Iniciar Sesión'
+      register: 'Registrate'
+      logout: 'Cerrar Sesión'
 
         #users
   authentication:
@@ -47,6 +45,8 @@ es:
       create:
         created: 'Bienvenido!'
         failed: 'Login invalido!'
+      destroy:
+        destroyed: 'Tu sesión ha terminado'
   products:
     edit:
       title: 'Editar Producto'
