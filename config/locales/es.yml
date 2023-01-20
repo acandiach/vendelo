@@ -29,7 +29,24 @@ es:
             name:
               blank: 'No puede estar vacio'
   common:
-    confirm: '¿Está seguro de que desea eliminar este producto?'
+    confirm: '¿Está seguro?'
+    not_logged_in: 'Tienes que hacer login o crearte una cuenta'
+
+        #shared
+  shared:
+    header:
+      add: 'Crear Producto'
+      categories: 'Crear Categoria'
+
+        #users
+  authentication:
+    users:
+      create:
+        created: 'Tu cuenta se ha creado'
+    sessions:
+      create:
+        created: 'Bienvenido!'
+        failed: 'Login invalido!'
   products:
     edit:
       title: 'Editar Producto'
@@ -57,8 +74,6 @@ es:
       submit: 'Crear Producto'
 
         #category
-  common:
-    confirm: '¿Está seguro de que desea eliminar esta categoria?'
   categories:
     category:
       edit: 'Editar Categoria'
@@ -81,8 +96,3 @@ es:
     form:
       submit: 'Crear Categoria'
 
-        #shared
-  shared:
-    header:
-      add: 'Crear Producto'
-      categories: 'Crear Categoria'
