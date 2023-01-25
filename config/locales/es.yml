@@ -27,6 +27,7 @@ es:
     confirm: '¿Está seguro?'
     not_logged_in: 'Tienes que hacer login o crearte una cuenta'
     not_authorized: 'No tienes permiso para esta acción'
+    not_found: 'No se ha encontrado'
 
         #shared
   shared:
@@ -56,6 +57,7 @@ es:
     show:
       edit: 'Editar Producto'
       delete: 'Borrar Producto'
+      view_more_products: 'Ver mas productos de %{username}'
     index:
       title: 'Productos:'
       all: 'Todos'
