@@ -26,6 +26,7 @@ es:
   common:
     confirm: '¿Está seguro?'
     not_logged_in: 'Tienes que hacer login o crearte una cuenta'
+    not_authorized: 'No tienes permiso para esta acción'
 
         #shared
   shared:
