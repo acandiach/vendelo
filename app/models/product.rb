@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
   include PgSearch::Model
+  include Favoritable
+
   pg_search_scope :search_full_text, against: {
     title: 'A',
     description: 'B'
@@ -11,11 +13,11 @@ class Product < ApplicationRecord
     cheapest: "price ASC"
   }
 
+  has_one_attached :photo
+
   validates :title, presence: true
   validates :description, presence: true
   validates :price, presence: true
-
-  has_one_attached :photo
 
   belongs_to :category
   belongs_to :user, default: -> { Current.user }
