@@ -37,6 +37,7 @@ en:
       login: 'Login'
       register: 'Register'
       logout: 'Logout'
+      favorites: 'My Favorites'
 
         #users
   authentication:
@@ -99,3 +100,7 @@ en:
     form:
       submit: 'Create Category'
 
+    #Favorites
+  favorites:
+    index:
+      title: 'My Favorites'

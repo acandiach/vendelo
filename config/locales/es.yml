@@ -37,6 +37,7 @@ es:
       login: 'Iniciar Sesión'
       register: 'Registrate'
       logout: 'Cerrar Sesión'
+      favorites: 'Mis Favoritos'
 
         #users
   authentication:
@@ -99,3 +100,7 @@ es:
     form:
       submit: 'Crear Categoria'
 
+    #favorites
+  favorites:
+    index:
+      title: 'Mis Favoritos'
